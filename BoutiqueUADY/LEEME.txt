@@ -1,0 +1,58 @@
+BOUTIQUE UADY EN LINEA - VERSION PHP (carpeta BoutiqueUADY, zip boutiqueuadyphp_)
+=================================================================================
+Version PHP para la materia de Desarrollo de Aplicaciones Web. Tiene las mismas
+funciones que la version Java (BoutiqueUady, usada en Construccion de Software)
+y comparte con ella la misma base de datos boutique_uady.
+
+INSTALACION (XAMPP)
+1. Copia esta carpeta a  C:\xampp\htdocs\BoutiqueUADY  (reemplaza la version 1.5 si existe)
+2. Enciende Apache y MySQL en el panel de XAMPP.
+3. En phpMyAdmin importa  boutique_uady.sql  (crea la base y las 9 tablas con datos
+   de ejemplo; es seguro repetirlo, no borra datos existentes).
+4. Abre  http://localhost/BoutiqueUADY/index.php
+
+SI NETBEANS ABRE localhost:8000 EN VEZ DE localhost/BoutiqueUADY
+   Es que el proyecto quedo con "PHP Built-in Web Server". Clic derecho al proyecto >
+   Properties > Run Configuration:  Run As = Local Web Site (running on local web server),
+   Project URL = http://localhost/BoutiqueUADY/ , Index File = index.php. La carpeta del
+   proyecto debe estar dentro de C:\xampp\htdocs y Apache encendido. (El archivo
+   nbproject/private/private.properties de este zip ya trae esa configuracion.)
+
+ESTRUCTURA (se mantiene la de la version 1.5)
+  index.php, login.php, registro.php, logout.php  paginas con sesion PHP
+  catalogo.html, carrito.html                     paginas estaticas: todo su contenido llega por
+                                                  fetch desde las APIs, por eso no necesitan ser .php
+  conexion.php                                    conexion mysqli a boutique_uady
+  api_comun.php        responder() JSON y exigirSesion() (equivale a AutenticacionFilter)
+  sesion_api.php       {autenticado, nombre}; mantiene la cookie del saludo (equivale a SesionServlet)
+  productos_api.php    catalogo con filtros ?sucursal= y ?talla=; ?id= da el detalle
+  sucursales_api.php   sucursales activas (FMAT y Principal)
+  carrito_api.php      carrito por usuario en carritos / detalle_carrito (privada)
+  pedidos_api.php      POST confirma el pedido descontando inventario; GET historial (privada)
+  comprobante.php      descarga el comprobante .txt de un pedido propio (privada)
+  assets/js/catalogo.js  dibuja el catalogo desde productos_api.php
+  assets/js/carrito.js   carrito, eleccion de sucursal y confirmacion del pedido
+  assets/js/script.js    lightbox, saludo de sesion (confirmado con sesion_api.php) y tema claro/oscuro
+  assets/js/auth.js      envia login.php y registro.php por fetch: los mensajes aparecen sin recargar
+                         (login.php y registro.php responden JSON si la peticion trae X-Requested-With: fetch,
+                         y la pagina normal si se envia el formulario sin JavaScript)
+
+CAMBIOS RESPECTO A LA 1.5
+- El catalogo ya no esta escrito en catalogo.html: se lee de MySQL.
+- Filtros por sucursal (por defecto todas) y por talla; cada producto indica su sucursal.
+- Boton "Ver detalle" con existencias por sucursal y talla.
+- El carrito usa las tablas carritos y detalle_carrito (ya no carrito_usuario) y los
+  precios los pone el servidor desde la tabla productos.
+- Al "Proceder al pedido" se elige la sucursal; el servidor revisa existencias, las
+  descuenta en una transaccion (todo o nada) y permite descargar el comprobante .txt.
+- Los mensajes del login son genericos ("Correo o contraseña incorrectos.") y se muestran sin
+  recargar la pagina; las validaciones con alert() siguen en validacion.js.
+- La barra confirma la sesion con el servidor (sesion_api.php) y el saludo queda junto al boton de tema.
+- Las existencias iniciales son datos de ejemplo; los productos FMAT solo existen en FMAT.
+
+EQUIVALENCIA CON LA VERSION JAVA
+  /api/productos   -> productos_api.php      /api/carrito     -> carrito_api.php
+  /api/sucursales  -> sucursales_api.php     /api/pedidos     -> pedidos_api.php
+  /api/comprobante -> comprobante.php        AutenticacionFilter -> exigirSesion()
+  /api/login, /api/registro, /api/logout -> login.php, registro.php, logout.php
+  /api/sesion -> sesion_api.php             auth.js y script.js son los mismos que en Java
