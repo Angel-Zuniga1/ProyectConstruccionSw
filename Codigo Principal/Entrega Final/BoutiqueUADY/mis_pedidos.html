@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis pedidos | Boutique UADY</title>
+  <link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="index.php">Boutique <b>UADY</b></a>
+    <nav>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="carrito.html" class="carrito-nav">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+      <a href="login.php">Iniciar sesión</a>
+      <a class="boton" href="registro.php">Crear cuenta</a>
+    </nav>
+  </header>
+
+  <main class="pagina-carrito">
+    <h1>Mis pedidos</h1>
+    <p class="vacio" id="pedidos-sin-sesion" hidden>Inicia sesión para ver tus pedidos.</p>
+    <p class="vacio" id="pedidos-vacio" hidden>Aún no tienes pedidos. <a href="catalogo.html">¡Ve a comprar!</a></p>
+    <div id="lista-pedidos"></div>
+  </main>
+
+  <footer class="pie">
+    Boutique UADY en línea · Proyecto integrador de Desarrollo de Aplicaciones Web · Facultad de Matemáticas
+  </footer>
+
+  <script src="assets/js/carrito.js"></script>
+  <script src="assets/js/mis_pedidos.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

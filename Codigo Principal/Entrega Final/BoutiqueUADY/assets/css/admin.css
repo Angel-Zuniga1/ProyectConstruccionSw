@@ -1,0 +1,43 @@
+/* Panel de administración: reutiliza la paleta y la barra de estilo.css */
+.etiqueta-admin { font-size: .7rem; background: #f59e0b; color: #111; border-radius: 6px; padding: 2px 6px; margin-left: 6px; vertical-align: middle; }
+.barra nav a.activo { text-decoration: underline; text-underline-offset: 4px; }
+.panel { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+.panel h1 { margin-bottom: 16px; }
+.bloque { border: 1px solid rgba(148,163,184,.35); border-radius: 14px; padding: 18px; margin-bottom: 24px; }
+.bloque h2 { margin: 0 0 12px; font-size: 1.15rem; }
+.tarjetas-resumen { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 24px; }
+.resumen { display: flex; flex-direction: column; align-items: center; padding: 18px; border-radius: 14px; text-decoration: none; color: inherit; background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.3); }
+.resumen b { font-size: 1.8rem; }
+.form-admin { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; align-items: end; }
+.form-admin label { display: flex; flex-direction: column; gap: 4px; font-size: .9rem; }
+.form-admin input, .form-admin select, .inline input.chico { padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(148,163,184,.5); background: transparent; color: inherit; }
+.form-admin .casilla { flex-direction: row; align-items: center; gap: 8px; }
+.form-admin .acciones, .acciones { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+.inline-form { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; margin-bottom: 14px; }
+.inline-form label { display: flex; flex-direction: column; gap: 4px; font-size: .9rem; }
+.inline-form select { padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(148,163,184,.5); background: transparent; color: inherit; }
+.tabla-scroll { overflow-x: auto; }
+.tabla-admin { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.tabla-admin th, .tabla-admin td { padding: 8px 10px; border-bottom: 1px solid rgba(148,163,184,.3); text-align: left; vertical-align: middle; }
+.tabla-admin th { font-weight: 700; opacity: .85; }
+.tabla-admin tr.inactivo { opacity: .55; }
+.tabla-admin tr.agotado td { color: #f87171; }
+.tabla-admin .mini { width: 48px; height: 48px; object-fit: cover; border-radius: 8px; background: #fff; }
+.tabla-admin td.acciones { display: flex; gap: 6px; flex-wrap: wrap; }
+.inline { display: inline-flex; gap: 6px; align-items: center; }
+.boton.chico { padding: 5px 10px; font-size: .85rem; }
+.boton.secundario { background: transparent; border: 1px solid currentColor; color: inherit; }
+.boton.peligro { background: #b91c1c; }
+input.numero { width: 90px; }
+.pedido-admin { border: 1px solid rgba(148,163,184,.35); border-left: 6px solid #64748b; border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+.pedido-admin header { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.pedido-admin .total { font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
+.pedido-admin .renglones { margin: 10px 0; padding-left: 18px; }
+.pedido-admin.estado-pendiente { border-left-color: #f59e0b; }
+.pedido-admin.estado-listo-para-recoger { border-left-color: #3b82f6; }
+.pedido-admin.estado-entregado { border-left-color: #22c55e; }
+.pedido-admin.estado-cancelado { border-left-color: #ef4444; opacity: .75; }
+.chip { font-size: .85rem; padding: 4px 10px; border-radius: 999px; background: rgba(34,197,94,.2); }
+:root[data-tema="claro"] .resumen { background: #eff6ff; }
+.talla-inicial { display: inline-flex; flex-direction: row !important; align-items: center; gap: 6px; font-size: .85rem; }
+.talla-inicial input.numero { width: 64px; }

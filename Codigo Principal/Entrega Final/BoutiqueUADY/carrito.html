@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Carrito | Boutique UADY</title>
+  <link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="index.php">Boutique <b>UADY</b></a>
+    <nav>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="carrito.html" class="carrito-nav">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+      <a href="login.php">Iniciar sesión</a>
+      <a class="boton" href="registro.php">Crear cuenta</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="titulo">Tu Carrito de Compras</h1>
+    
+    <div id="carrito-vacio" class="vacio" hidden>
+      Tu carrito está vacío. <a href="catalogo.html">¡Ve a comprar!</a>
+    </div>
+
+    <div id="mensaje-pedido" class="vacio" hidden></div>
+
+    <div id="carrito-contenido">
+      <table class="tabla-carrito">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="lista-carrito">
+        </tbody>
+      </table>
+
+      <div class="resumen-carrito">
+        <h3>Total: <span id="total-carrito">$0.00</span></h3>
+        <label for="sucursal-pedido">Recoger en la sucursal:</label>
+        <select id="sucursal-pedido">
+          <option value="">Selecciona una sucursal</option>
+        </select>
+        <button class="boton grande" id="btn-proceder-pago">Proceder al Pedido</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie">
+    Boutique UADY en línea · Proyecto integrador de Desarrollo de Aplicaciones Web · Facultad de Matemáticas
+  </footer>
+
+  <script src="assets/js/carrito.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

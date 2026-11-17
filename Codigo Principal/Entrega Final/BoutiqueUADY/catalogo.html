@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo | Boutique UADY</title>
+  <link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+
+  <header class="barra">
+    <a class="marca" href="index.php">Boutique <b>UADY</b></a>
+    <nav>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="carrito.html" class="carrito-nav">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+      <a href="login.php">Iniciar sesión</a>
+      <a class="boton" href="registro.php">Crear cuenta</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="titulo">Catálogo</h1>
+    
+    <form class="filtros" id="filtros">
+      <input type="search" id="q" placeholder="Buscar producto...">
+      <select id="cat">
+        <option value="0">Todas las categorías</option>
+        <option value="1">Playeras</option>
+        <option value="2">Sudaderas</option>
+        <option value="3">Gorras</option>
+        <option value="4">Accesorios</option>
+      </select>
+      <select id="sucursal" aria-label="Sucursal">
+        <option value="">Todas las sucursales</option>
+      </select>
+      <select id="talla" aria-label="Talla">
+        <option value="">Todas las tallas</option>
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="2XL">2XL</option>
+      </select>
+    </form>
+
+    <p class="vacio" id="vacio" hidden>No hay productos con esos filtros. Prueba quitando alguno.</p>
+    <p class="vacio" id="error-catalogo" hidden>No se pudo cargar el catálogo. Revisa que Apache y MySQL estén encendidos en XAMPP.</p>
+
+    <div class="rejilla" id="rejilla"></div>
+  </main>
+
+  <footer class="pie">
+    Boutique UADY en línea · Proyecto integrador de Desarrollo de Aplicaciones Web · Facultad de Matemáticas
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="miLightbox" class="lightbox">
+    <span class="cerrar-lightbox">&times;</span>
+    <img class="lightbox-contenido" id="imgLightbox" src="" alt="Imagen ampliada">
+  </div>
+
+  <!-- Detalle del producto -->
+  <div id="modalDetalle" class="modal-detalle" hidden>
+    <div class="modal-caja">
+      <button type="button" class="modal-cerrar" id="cerrarDetalle" aria-label="Cerrar">&times;</button>
+      <div id="contenidoDetalle"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/carrito.js"></script>
+  <script src="assets/js/catalogo.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
